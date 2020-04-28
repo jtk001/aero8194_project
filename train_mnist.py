@@ -8,9 +8,7 @@ Created on Fri Apr  3 14:51:23 2020
 
 import argparse as ap
 import os
-
 import tensorflow as tf
-
 from sklearn.preprocessing import LabelBinarizer
 from vae import VAE,CVAE
 
@@ -55,7 +53,6 @@ for direc in dirs:
     if not os.path.isdir(direc):
         os.makedirs(direc)
     
-
 def preprocess_input(x):
     return x / 255.
 
