@@ -11,6 +11,7 @@ from tensorflow.keras.layers import Input,Dense, Concatenate
 from tensorflow.keras.models import Model
 
 class SamplingLayer(tf.keras.layers.Layer):
+
     def __init__(self,**kwargs):
         self.is_placeholder = True
         super().__init__(**kwargs)
@@ -24,6 +25,7 @@ class SamplingLayer(tf.keras.layers.Layer):
         return input_shape[0]
     
 class KLDivergenceLayer(tf.keras.layers.Layer):
+
     def __init__(self,beta=0.5,**kwargs):
         self.beta = beta
         self.is_placeholder = True
@@ -45,6 +47,7 @@ class KLDivergenceLayer(tf.keras.layers.Layer):
         return config
     
 class ReconstructionLossLayer(tf.keras.layers.Layer):
+
     def __init__(self,dim,bernoulli=False,**kwargs):
         self.dim = dim
         self.bernoulli = bernoulli
@@ -71,6 +74,7 @@ class ReconstructionLossLayer(tf.keras.layers.Layer):
         return config
     
 class VAE():
+
     def __init__(self,input_dim,
                  latent_dim=12,
                  beta=0.5,
@@ -107,6 +111,7 @@ class VAE():
         return encoder,decoder,vae_model
     
 class CVAE():
+
     def __init__(self,input_dim,
                  latent_dim=12,
                  aux_dim=10,
